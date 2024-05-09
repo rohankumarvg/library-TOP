@@ -1,25 +1,31 @@
-// Book object constructor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    if (read) {
-      return `${title} by ${author}, ${pages} pages read already`;
+// Book class
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  info() {
+    if (this.read) {
+      return `${this.title} by ${this.author}, ${this.pages} pages read already`;
     } else {
-      return `${title} by ${author}, ${pages} pages not read yet`;
+      return `${this.title} by ${this.author}, ${this.pages} pages not read yet`;
     }
-  };
+  }
 }
 
-// Player object constructor
-function Player(name, marker) {
-  this.name = name;
-  this.marker = marker;
-  this.sayName = function () {
+// Player class
+class Player {
+  constructor(name, marker) {
+    this.name = name;
+    this.marker = marker;
+  }
+
+  sayName() {
     console.log(this.name);
-  };
+  }
 }
 
 // Library array
@@ -47,6 +53,7 @@ function createBook(e) {
 function renderBooks() {
   const bookCardsDiv = document.getElementById('bookCards');
   bookCardsDiv.innerHTML = '';
+
   myLibrary.forEach((book, index) => {
     const card = document.createElement('div');
     card.className = 'card';
